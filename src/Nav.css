@@ -1,0 +1,63 @@
+.nav-glass {
+  position: fixed;
+  top: 2rem;
+  max-width: 380px;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background: rgb(0, 0, 0);
+  box-shadow: 1px 0px 41px 15px rgba(3,53,7,0.76);
+  -webkit-box-shadow: 1px 0px 41px 15px rgba(3,53,7,0.76);
+  -moz-box-shadow: 1px 0px 41px 15px rgba(3,53,7,0.76);
+  border-radius: 72px;
+  font-size: 1rem;
+  font-family: 'Lexend Deca', sans-serif;
+  padding: 0.5rem 1.4rem;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.nav-glass ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-glass a {
+  color: #30b463b2;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-glass a:hover {
+  color: #fcfcfc;
+} 
+
+.nav-button {
+  background-color: #000000a1;
+  border: none;
+  border-radius: 72px;
+  border: 1px solid rgb(11, 97, 18);
+  padding: 0.5rem 1rem;
+  color: #000;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.nav-logo {
+  height: 40px;
+  width: auto;
+  margin-right: 1.5rem;
+  vertical-align: middle;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  margin-right: rem;
+}
+
+
