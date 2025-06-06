@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import './WorkDetails.css';
 import Footer from './Footer';
 import work1 from './Design/Mightymanpower.png';
@@ -11,7 +12,7 @@ import ScrollReveal from 'scrollreveal';
 
 const WorkDetails = () => {
   const { id } = useParams();
-  
+
   useEffect(() => {
     const sr = ScrollReveal({
       origin: 'bottom',
@@ -107,23 +108,72 @@ const WorkDetails = () => {
     features: []
   };
 
+  // Create JSON-LD structured data
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": project.title,
+    "description": project.description,
+    "image": project.image,
+    "url": `https://voidtheory.online/work/${id}`,
+    "author": {
+      "@type": "Organization",
+      "name": "voidTheory",
+      "url": "https://voidtheory.online"
+    },
+    "mainEntity": {
+      "@type": "CreativeWork",
+      "name": project.title,
+      "description": project.description,
+      "image": project.image,
+      "keywords": project.technologies.join(", ")
+    }
+  };
+
   return (
     <div className="work-details">
+      <Helmet>
+        <title>{project.title} | voidTheory</title>
+        <meta name="description" content={project.description} />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://voidtheory.online/work/${id}`} />
+        <meta property="og:title" content={`${project.title} | voidTheory`} />
+        <meta property="og:description" content={project.description} />
+        <meta property="og:image" content={project.image} />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={`https://voidtheory.online/work/${id}`} />
+        <meta property="twitter:title" content={`${project.title} | voidTheory`} />
+        <meta property="twitter:description" content={project.description} />
+        <meta property="twitter:image" content={project.image} />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href={`https://voidtheory.online/work/${id}`} />
+
+        {/* JSON-LD Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify(jsonLd)}
+        </script>
+      </Helmet>
+
       <div className="work-details-container">
         <div className="work-details-header">
           <Link to="/" className="back-button">← Back to Home</Link>
           <h1>{project.title}</h1>
         </div>
-        
+
         <div className="work-details-content">
           <div className="work-details-image">
             <img src={project.image} alt={project.title} />
           </div>
-          
+
           <div className="work-details-info">
             <h2>Project Overview</h2>
             <p>{project.description}</p>
-            
+
             <div className="work-details-technologies">
               <h3>Technologies Used</h3>
               <ul>
@@ -132,7 +182,7 @@ const WorkDetails = () => {
                 ))}
               </ul>
             </div>
-            
+
             <div className="work-details-features">
               <h3>Key Features</h3>
               <ul>

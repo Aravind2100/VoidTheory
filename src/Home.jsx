@@ -18,6 +18,7 @@ import gsap from 'gsap';
 import { Power3 } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Footer from './Footer';
+import { Helmet } from 'react-helmet-async';
 
 function Home() {
   const [pixelatedIndex, setPixelatedIndex] = useState(null);
@@ -49,49 +50,49 @@ function Home() {
     });
 
     // Home section animations
-    sr.reveal('.home-content h1', { 
+    sr.reveal('.home-content h1', {
       delay: 50,
       distance: '60px',
       duration: 600
     });
-    sr.reveal('.home-content p', { 
+    sr.reveal('.home-content p', {
       delay: 100,
       distance: '40px',
       duration: 600
     });
-    sr.reveal('.buttons', { 
+    sr.reveal('.buttons', {
       delay: 150,
       distance: '30px',
       duration: 600
     });
-    sr.reveal('.trusties', { 
+    sr.reveal('.trusties', {
       delay: 200,
       distance: '20px',
       duration: 600
     });
 
     // Our Work section animations
-    sr.reveal('.work-content h1', { 
+    sr.reveal('.work-content h1', {
       delay: 50,
       distance: '60px',
       duration: 600
     });
-    sr.reveal('.work-slider', { 
+    sr.reveal('.work-slider', {
       delay: 100,
       distance: '40px',
       duration: 600
     });
-    sr.reveal('.work-content-heading', { 
+    sr.reveal('.work-content-heading', {
       delay: 150,
       distance: '30px',
       duration: 600
     });
-    sr.reveal('.work-content-heading-desc', { 
+    sr.reveal('.work-content-heading-desc', {
       delay: 200,
       distance: '30px',
       duration: 600
     });
-    sr.reveal('.work-content-desc', { 
+    sr.reveal('.work-content-desc', {
       delay: 250,
       distance: '20px',
       duration: 600
@@ -275,18 +276,56 @@ function Home() {
 
   return (
     <div className="Home-Body">
+      <Helmet>
+        <title>voidTheory - Creative Web Development & Design Studio</title>
+        <meta name="description" content="voidTheory is a creative web development and design studio specializing in modern, responsive websites and digital solutions. We create beautiful, functional websites that help businesses grow." />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://voidtheory.online/" />
+        <meta property="og:title" content="voidTheory - Creative Web Development & Design Studio" />
+        <meta property="og:description" content="voidTheory is a creative web development and design studio specializing in modern, responsive websites and digital solutions. We create beautiful, functional websites that help businesses grow." />
+        <meta property="og:image" content="https://voidtheory.online/src/assets/logo.png" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://voidtheory.online/" />
+        <meta property="twitter:title" content="voidTheory - Creative Web Development & Design Studio" />
+        <meta property="twitter:description" content="voidTheory is a creative web development and design studio specializing in modern, responsive websites and digital solutions. We create beautiful, functional websites that help businesses grow." />
+        <meta property="twitter:image" content="https://voidtheory.online/src/assets/logo.png" />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://voidtheory.online/" />
+
+        {/* JSON-LD Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "voidTheory",
+            "url": "https://voidtheory.online",
+            "description": "Creative Web Development & Design Studio",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://voidtheory.online/search?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          })}
+        </script>
+      </Helmet>
+
       <div className="home-bg" style={{ backgroundImage: `url(${bgImage})` }}>
         <div className='home-content'>
-          <h1>We build websites that turn<br/>
-          visitors into paying customers.</h1>
+          <h1>We build websites that turn<br />
+            visitors into paying customers.</h1>
           <p className="home-desc-mobile">
-            voidTheory builds websites that convert.<br/>
-            Smart copy. Seamless code.<br/>
+            voidTheory builds websites that convert.<br />
+            Smart copy. Seamless code.<br />
             Growth by design.
           </p>
 
           <p className="home-desc-desktop">
-            At voidTheory, we build high-converting websites with smart copy and seamless development—<br/>
+            At voidTheory, we build high-converting websites with smart copy and seamless development—<br />
             turning visitors into loyal customers.
             Driven by strategy. Designed for growth.
           </p>
