@@ -102,7 +102,7 @@ const Footer = () => {
             <a href="https://cal.com/voidtheory/call" target="_blank" rel="noopener noreferrer" className="footer-cta">
               Schedule a Call
             </a>
-            <p className="email">voidtheory@gmail.com</p>
+            <p className="email">voidtheoryit@gmail.com</p>
           </div>
         </div>
 
