@@ -1,3 +1,4 @@
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -163,8 +164,7 @@
 }
 
 .Our-Work {
-  height: auto;
-  min-height: unset;
+  min-height: 100vh;
   width: 100vw;
   background-size: cover;
   background-position: center;
@@ -172,8 +172,7 @@
   display: flex;
   justify-content: center;
   position: relative;
-  overflow-x: hidden;
-  overflow-y: visible;
+  overflow: hidden;
 }
 
 .Our-Work::before{
@@ -188,7 +187,8 @@
 }
 
 .work-content {
-  position: static;
+  z-index: 2;
+  position: absolute;
   max-width: 100%;
   gap: 20px;
   display: flex;
@@ -243,16 +243,11 @@
 }
 
 .Our-Work-Footer {
-  position: static;
-  z-index: 10;
-  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 2rem 1rem;
-  box-sizing: border-box;
 }
 
 .work-slider {
@@ -931,86 +926,4 @@
   background: linear-gradient(to right, #00ff94, #01c201);
   z-index: 9999;
   transition: width 0.1s ease;
-}
-
-.work-content-heading,
-.work-content-heading-desc,
-.work-content-desc {
-  word-break: break-word;
-  overflow-wrap: break-word;
-  text-align: center;
-  width: 100%;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.work-content-heading-desc {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-}
-
-.work-content-desc {
-  font-size: 1rem;
-  margin-bottom: 1.2rem;
-}
-
-@media (max-width: 768px) {
-  .Our-Work-Footer {
-    padding: 1.2rem 0.5rem;
-  }
-  .work-content-heading {
-    font-size: 1.2rem;
-  }
-  .work-content-heading-desc {
-    font-size: 1rem;
-  }
-  .work-content-desc {
-    font-size: 0.95rem;
-  }
-  .btn-built {
-    font-size: 0.95rem;
-    padding: 8px 16px;
-    width: 100%;
-    max-width: 320px;
-    box-sizing: border-box;
-  }
-}
-
-@media (max-width: 480px) {
-  .Our-Work-Footer {
-    padding: 0.7rem 0.2rem;
-  }
-  .work-content-heading,
-  .work-content-heading-desc,
-  .work-content-desc {
-    font-size: 0.95rem;
-    max-width: 98vw;
-    padding: 0 2vw;
-  }
-  .btn-built {
-    font-size: 0.9rem;
-    padding: 7px 8px;
-    width: 100%;
-    max-width: 98vw;
-  }
-}
-
-@media (max-width: 900px) {
-  .Our-Work-Footer {
-    margin-bottom: 2rem;
-    padding-bottom: 2rem;
-  }
-}
-@media (max-width: 600px) {
-  .Our-Work-Footer {
-    margin-bottom: 2rem;
-    padding-bottom: 2rem;
-  }
-  .Our-Work-Footer .btn-built {
-    font-size: 0.85rem;
-    padding: 7px 12px;
-    max-width: 180px;
-    width: 100%;
-  }
 }
