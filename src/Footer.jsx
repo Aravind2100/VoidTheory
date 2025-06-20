@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Footer.css';
 import gsap from 'gsap';
 import { Power3 } from 'gsap';
+import { FaTwitter, FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const Footer = () => {
   useEffect(() => {
@@ -58,6 +59,15 @@ const Footer = () => {
     });
   }, []);
 
+  // Scroll to Why Choose Void Theory section
+  const scrollToBenefits = (e) => {
+    e.preventDefault();
+    const benefitsSection = document.querySelector('.Why-Choose-Void-Theory');
+    if (benefitsSection) {
+      benefitsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className="footer">
       <div className="footer-content">
@@ -67,13 +77,13 @@ const Footer = () => {
             <p>Transforming ideas into digital excellence. We create stunning, high-performance websites that drive results.</p>
             <div className="social-links">
               <a href="https://twitter.com/voidtheory" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                <i className="fab fa-twitter"></i>
+                <FaTwitter color="#fff" size="1.6em" />
               </a>
               <a href="https://linkedin.com/company/voidtheory" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <i className="fab fa-linkedin"></i>
+                <FaLinkedin color="#fff" size="1.6em" />
               </a>
               <a href="https://github.com/voidtheory" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <i className="fab fa-github"></i>
+                <FaGithub color="#fff" size="1.6em" />
               </a>
             </div>
           </div>
@@ -91,7 +101,11 @@ const Footer = () => {
           <div className="footer-links">
             <h4>Company</h4>
             <ul>
-              <li><p>Benefits of hiring us</p></li>
+              <li>
+                <button onClick={scrollToBenefits} className="footer-benefits-link" style={{ background: 'none', border: 'none', color: 'inherit', padding: 0, margin: 0, font: 'inherit', cursor: 'pointer', textAlign: 'left' }}>
+                  Benefits of hiring us
+                </button>
+              </li>
               <li><a href="https://cal.com/voidtheory/call" target="_blank" rel="noopener noreferrer">Book a Call</a></li>
             </ul>
           </div>

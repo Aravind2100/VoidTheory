@@ -56,26 +56,48 @@
 .social-links {
   display: flex;
   gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
 }
 
 .social-links a {
-  color: #ffffff;
-  font-size: 1.2rem;
+  color: #ffffff !important;
+  font-size: 1.6rem;
   transition: all 0.3s ease;
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(1, 194, 1, 0.12);
+  border: 1.5px solid rgba(1, 194, 1, 0.18);
+  box-shadow: 0 2px 8px rgba(1, 194, 1, 0.08);
+  outline: none;
+}
+
+.social-links a:focus {
+  outline: 2px solid #01c201;
+  outline-offset: 2px;
 }
 
 .social-links a:hover {
   background: #01c201;
-  color: #0a0a0a;
-  transform: translateY(-3px);
+  color: #ffffff !important;
+  border-color: #01c201;
+  box-shadow: 0 4px 16px rgba(1, 194, 1, 0.18);
+  transform: translateY(-3px) scale(1.08);
+}
+
+.social-links a i {
+  color: #ffffff !important;
+  transition: color 0.3s;
+}
+
+.social-links a:hover i,
+.social-links a:focus i {
+  color: #ffffff !important;
 }
 
 .footer-links h4,
@@ -181,6 +203,20 @@
 
 .legal-links a:hover {
   color: #01c201;
+}
+
+.footer-benefits-link {
+  color: #a0a0a0;
+  text-decoration: none;
+  transition: color 0.3s, transform 0.3s;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.footer-benefits-link:hover {
+  color: #01c201;
+  transform: translateX(5px);
+  text-decoration: none;
 }
 
 @media (max-width: 1024px) {
@@ -289,8 +325,8 @@
   }
 
   .social-links a {
-    width: 35px;
-    height: 35px;
-    font-size: 1rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
   }
 } 
