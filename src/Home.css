@@ -186,14 +186,15 @@ html, body {
 
 .Our-Work::before{
   content: '';
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex: 1;
+  height: 100%; /* Use height, not min-height */
   background: rgba(24, 24, 24, 0.548);
   backdrop-filter: blur(50px);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .work-content {
