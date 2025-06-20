@@ -173,7 +173,7 @@ html, body {
 }
 
 .Our-Work {
-  min-height: 150vh;
+  min-height: 120vh;
   width: 100vw;
   background-size: cover;
   background-position: center;
@@ -181,7 +181,7 @@ html, body {
   display: flex;
   justify-content: center;
   position: relative;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .Our-Work::before{
