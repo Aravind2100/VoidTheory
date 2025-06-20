@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import './WorkDetails.css';
 import Footer from './Footer';
 import work1 from './Design/Mightymanpower.png';
@@ -132,32 +131,27 @@ const WorkDetails = () => {
 
   return (
     <div className="work-details">
-      <Helmet>
-        <title>{project.title} | voidTheory</title>
-        <meta name="description" content={project.description} />
-
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://voidtheory.online/work/${id}`} />
-        <meta property="og:title" content={`${project.title} | voidTheory`} />
-        <meta property="og:description" content={project.description} />
-        <meta property="og:image" content={project.image} />
-
-        {/* Twitter */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={`https://voidtheory.online/work/${id}`} />
-        <meta property="twitter:title" content={`${project.title} | voidTheory`} />
-        <meta property="twitter:description" content={project.description} />
-        <meta property="twitter:image" content={project.image} />
-
-        {/* Canonical URL */}
-        <link rel="canonical" href={`https://voidtheory.online/work/${id}`} />
-
-        {/* JSON-LD Structured Data */}
-        <script type="application/ld+json">
-          {JSON.stringify(jsonLd)}
-        </script>
-      </Helmet>
+      {/* Native React 19 metadata tags */}
+      <title>{project.title} | voidTheory</title>
+      <meta name="description" content={project.description} />
+      {/* Open Graph / Facebook */}
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content={`https://voidtheory.online/work/${id}`} />
+      <meta property="og:title" content={`${project.title} | voidTheory`} />
+      <meta property="og:description" content={project.description} />
+      <meta property="og:image" content={project.image} />
+      {/* Twitter */}
+      <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:url" content={`https://voidtheory.online/work/${id}`} />
+      <meta property="twitter:title" content={`${project.title} | voidTheory`} />
+      <meta property="twitter:description" content={project.description} />
+      <meta property="twitter:image" content={project.image} />
+      {/* Canonical URL */}
+      <link rel="canonical" href={`https://voidtheory.online/work/${id}`} />
+      {/* JSON-LD Structured Data */}
+      <script type="application/ld+json">
+        {JSON.stringify(jsonLd)}
+      </script>
 
       <div className="work-details-container">
         <div className="work-details-header">
