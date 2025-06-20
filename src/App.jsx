@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import WorkDetails from './WorkDetails';
@@ -8,15 +7,14 @@ import Nav from './Nav';
 
 function App() {
   return (
-    <Router>
-      <Helmet>
+    <>
+      <head>
         {/* Default meta tags that apply to all pages */}
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#000000" />
         <meta name="author" content="voidTheory" />
         <meta name="robots" content="index, follow" />
-
         {/* Default JSON-LD for the organization */}
         <script type="application/ld+json">
           {JSON.stringify({
@@ -32,14 +30,15 @@ function App() {
             ]
           })}
         </script>
-      </Helmet>
-
-      <Nav />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/work/:id" element={<WorkDetails />} />
-      </Routes>
-    </Router>
+      </head>
+      <Router>
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/work/:id" element={<WorkDetails />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 

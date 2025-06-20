@@ -1,3 +1,8 @@
+/* Prevent unwanted horizontal scroll */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
 
 ::-webkit-scrollbar {
   display: none;
@@ -56,13 +61,15 @@
 }
 
 .home-glass h1 {
-  font-size: 2.8rem;
+  /* Responsive font size using clamp */
+  font-size: clamp(1.5rem, 5vw, 2.8rem);
   margin-bottom: 1rem;
   color: #00ff94;
 }
 
 .home-glass p {
-  font-size: 1.3rem;
+  /* Responsive font size using clamp */
+  font-size: clamp(1rem, 2vw, 1.3rem);
   color: #e0e0e0;
 } 
 
@@ -83,14 +90,16 @@
 }
 
 .home-content h1 {
-  font-size: 5rem;
+  /* Responsive font size using clamp */
+  font-size: clamp(2rem, 6vw, 5rem);
   margin-bottom: 1rem;
   color: #ffffff;
   /* text-shadow: 4px 4px 4px #0711087c; */
 }
 
 .home-content p {
-  font-size: 1.3rem;
+  /* Responsive font size using clamp */
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
   color: #01c201;
   margin-top: 40px;
   
@@ -248,6 +257,10 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  padding: 2rem 1rem 2.5rem 1rem;
+  box-sizing: border-box;
+  background: none;
+  overflow: visible;
 }
 
 .work-slider {
@@ -926,4 +939,147 @@
   background: linear-gradient(to right, #00ff94, #01c201);
   z-index: 9999;
   transition: width 0.1s ease;
+}
+
+/* Ensure touch targets are at least 48x48px */
+.buttons button, .btn-built, .btn-plan {
+  font-size: 1rem;
+}
+
+/* Make all images responsive */
+img, .work-card img, .service-card img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- Our Work Footer: Ensure full visibility and responsiveness --- */
+.Our-Work-Footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 2rem 1rem 2.5rem 1rem;
+  box-sizing: border-box;
+  background: none;
+  overflow: visible;
+}
+.work-content-heading,
+.work-content-heading-desc,
+.work-content-desc {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.work-content-heading {
+  font-size: clamp(1.5rem, 5vw, 2.8rem);
+  margin-bottom: 1rem;
+  padding: 0 0.5rem;
+}
+.work-content-heading-desc {
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  margin-bottom: 0.5rem;
+  padding: 0 0.5rem;
+}
+.work-content-desc {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  margin-bottom: 1.5rem;
+  padding: 0 0.5rem;
+}
+.Our-Work-Footer .btn-built {
+  
+  max-width: 350px;
+  min-width: 120px;
+  margin: 0 auto;
+  font-size: 1rem;
+  white-space: normal;
+  word-break: break-word;
+}
+@media (max-width: 600px) {
+  .Our-Work-Footer {
+    padding: 1.5rem 0.5rem 2rem 0.5rem;
+  }
+  .work-content-heading {
+    font-size: 1.3rem;
+    padding: 0 0.2rem;
+  }
+  .work-content-heading-desc {
+    font-size: 1rem;
+    padding: 0 0.2rem;
+  }
+  .work-content-desc {
+    font-size: 0.95rem;
+    padding: 0 0.2rem;
+  }
+  .Our-Work-Footer .btn-built {
+    font-size: 0.95rem;
+    padding: 10px 8px;
+    max-width: 100%;
+  }
+}
+
+/* --- GLOBAL: Strict responsive enforcement --- */
+html, body, #root {
+  max-width: 100vw;
+  overflow-x: hidden !important;
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* --- Universal text wrapping for all major containers --- */
+.Home-Body, .home-content, .Our-Work, .work-content, .Our-Work-Footer, .work-content-heading, .work-content-heading-desc, .work-content-desc, .Why-Choose-Void-Theory, .why-choose-void-theory-content, .services-content, .service-card, .work-card, .work-card p, .service-card p, .home-glass, .home-glass h1, .home-glass p {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100vw;
+}
+
+/* --- Images and sliders always fit --- */
+img, .work-card img, .service-card img, .slick-slider, .work-slider {
+  max-width: 100vw !important;
+  height: auto;
+  display: block;
+  box-sizing: border-box;
+}
+
+/* --- Prevent slider paddings from causing overflow --- */
+.work-slider .slick-slide {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100vw;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* --- Ensure all buttons and links wrap and fit --- */
+button, .btn-built, .btn-plan, .Our-Work-Footer .btn-built, .buttons a, .buttons button {
+  max-width: 100vw;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+}
+
+/* --- Section-specific: fix for ultra-small screens --- */
+@media (max-width: 400px) {
+  .work-content-heading, .work-content-heading-desc, .work-content-desc, .Our-Work-Footer .btn-built {
+    font-size: 0.9rem !important;
+    padding: 0 0.1rem;
+  }
+  .Our-Work-Footer {
+    padding: 1rem 0.1rem 1.5rem 0.1rem;
+  }
+  .Our-Work-Footer .btn-built {
+    padding: 16px 18px !important;
+    font-size: 1.05rem;
+  }
+}
+
+/* --- Remove any accidental horizontal scroll from all sections --- */
+.Home-Body, .home-bg, .Our-Work, .Why-Choose-Void-Theory, .Services-We-Offer {
+  max-width: 100vw;
+  overflow-x: hidden !important;
 }

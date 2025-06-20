@@ -18,7 +18,6 @@ import gsap from 'gsap';
 import { Power3 } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Footer from './Footer';
-import { Helmet } from 'react-helmet-async';
 
 function Home() {
   const [pixelatedIndex, setPixelatedIndex] = useState(null);
@@ -275,28 +274,24 @@ function Home() {
   ];
 
   return (
-    <div className="Home-Body">
-      <Helmet>
+    <>
+      <head>
         <title>voidTheory - Creative Web Development & Design Studio</title>
         <meta name="description" content="voidTheory is a creative web development and design studio specializing in modern, responsive websites and digital solutions. We create beautiful, functional websites that help businesses grow." />
-
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://voidtheory.online/" />
         <meta property="og:title" content="voidTheory - Creative Web Development & Design Studio" />
         <meta property="og:description" content="voidTheory is a creative web development and design studio specializing in modern, responsive websites and digital solutions. We create beautiful, functional websites that help businesses grow." />
         <meta property="og:image" content="https://voidtheory.online/src/assets/logo.png" />
-
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://voidtheory.online/" />
         <meta property="twitter:title" content="voidTheory - Creative Web Development & Design Studio" />
         <meta property="twitter:description" content="voidTheory is a creative web development and design studio specializing in modern, responsive websites and digital solutions. We create beautiful, functional websites that help businesses grow." />
         <meta property="twitter:image" content="https://voidtheory.online/src/assets/logo.png" />
-
         {/* Canonical URL */}
         <link rel="canonical" href="https://voidtheory.online/" />
-
         {/* JSON-LD Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify({
@@ -312,115 +307,116 @@ function Home() {
             }
           })}
         </script>
-      </Helmet>
+      </head>
+      <div className="Home-Body">
+        <div className="home-bg" style={{ backgroundImage: `url(${bgImage})` }}>
+          <div className='home-content'>
+            <h1>We build websites that turn<br />
+              visitors into paying customers.</h1>
+            <p className="home-desc-mobile">
+              voidTheory builds websites that convert.<br />
+              Smart copy. Seamless code.<br />
+              Growth by design.
+            </p>
 
-      <div className="home-bg" style={{ backgroundImage: `url(${bgImage})` }}>
-        <div className='home-content'>
-          <h1>We build websites that turn<br />
-            visitors into paying customers.</h1>
-          <p className="home-desc-mobile">
-            voidTheory builds websites that convert.<br />
-            Smart copy. Seamless code.<br />
-            Growth by design.
-          </p>
+            <p className="home-desc-desktop">
+              At voidTheory, we build high-converting websites with smart copy and seamless development—<br />
+              turning visitors into loyal customers.
+              Driven by strategy. Designed for growth.
+            </p>
 
-          <p className="home-desc-desktop">
-            At voidTheory, we build high-converting websites with smart copy and seamless development—<br />
-            turning visitors into loyal customers.
-            Driven by strategy. Designed for growth.
-          </p>
+            <div className="buttons">
+              <a href="https://cal.com/voidtheory/call?overlayCalendar=true" target="_blank" rel="noopener noreferrer" className="btn-built">Get your website built</a>
+              <button className="btn-plan" onClick={scrollToServices}>Services We Offer</button>
+            </div>
 
-          <div className="buttons">
-            <a href="https://cal.com/voidtheory/call?overlayCalendar=true" target="_blank" rel="noopener noreferrer" className="btn-built">Get your website built</a>
-            <button className="btn-plan" onClick={scrollToServices}>Services We Offer</button>
-          </div>
-
-          <div className="trusties">
-            <p>Trusted by 20+ Businesses</p>
+            <div className="trusties">
+              <p>Trusted by 20+ Businesses</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="Our-Work" style={{ backgroundImage: `url(${WorkBg})` }}>
-        <div className="work-content">
-          <h1>Our Work</h1>
-          <Slider {...sliderSettings} className="work-slider">
-            {workProjects.map((project) => (
-              <div className="work-card" key={project.id}>
-                <Link to={`/work/${project.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                  <img src={project.image} alt={project.title} />
-                  <p>{project.title}</p>
-                </Link>
+        <div className="Our-Work" style={{ backgroundImage: `url(${WorkBg})` }}>
+          <div className="work-content">
+            <h1>Our Work</h1>
+            <Slider {...sliderSettings} className="work-slider">
+              {workProjects.map((project) => (
+                <div className="work-card" key={project.id}>
+                  <Link to={`/work/${project.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                    <img src={project.image} alt={project.title} />
+                    <p>{project.title}</p>
+                  </Link>
+                </div>
+              ))}
+            </Slider>
+            <div className="Our-Work-Footer">
+              <h2 className="work-content-heading">Ready to Elevate Your Online Presence?</h2>
+              <p className="work-content-heading-desc">We're here to make it happen.</p>
+              <p className="work-content-desc">Whether you're launching something new or leveling up your existing site—we're here to make it happen.</p>
+              <a href="https://cal.com/voidtheory/call?overlayCalendar=true" target="_blank" rel="noopener noreferrer" className="btn-built">Get your website built</a>
+            </div>
+          </div>
+        </div>
+
+        <div className="Why-Choose-Void-Theory" style={{ backgroundImage: `url(${WhyChooseVoidTheoryBg})` }}>
+          <div className="why-choose-void-theory-content">
+            <h1>Why Choose Void Theory?</h1>
+            <ul>
+              <li>
+                <h3>Conversion-Focused Design</h3>
+                <p>Every page is structured to guide your visitors to take action—whether it's buying, booking, or subscribing.</p>
+              </li>
+              <li>
+                <h3>SEO & Speed Optimized</h3>
+                <p>Fast-loading, search-engine-friendly websites that rank higher and perform better.</p>
+              </li>
+              <li>
+                <h3>Custom-Built for Your Brand</h3>
+                <p>No templates. No shortcuts. 100% tailored design and development that reflects your unique business identity.</p>
+              </li>
+              <li>
+                <h3>Mobile-First, Always</h3>
+                <p>Your customers are on mobile—we make sure your website shines on every screen size.</p>
+              </li>
+            </ul>
+            <p className="why-choose-void-theory-content-desc">We don't just build websites—we build digital growth engines.</p>
+          </div>
+        </div>
+
+        <div className="Services-We-Offer" style={{ backgroundImage: `url(${ServicesBg})` }}>
+          <div className="services-content">
+            <h1>Services We Offer</h1>
+            <div className="services-grid">
+              <div className="service-card">
+                <h3>Custom Website Design</h3>
+                <p>Unique, brand-focused designs that convert visitors into customers.</p>
               </div>
-            ))}
-          </Slider>
-          <div className="Our-Work-Footer">
-            <h2 className="work-content-heading">Ready to Elevate Your Online Presence?</h2>
-            <p className="work-content-heading-desc">We're here to make it happen.</p>
-            <p className="work-content-desc">Whether you're launching something new or leveling up your existing site—we're here to make it happen.</p>
-            <a href="https://cal.com/voidtheory/call?overlayCalendar=true" target="_blank" rel="noopener noreferrer" className="btn-built">Get your website built</a>
-          </div>
-        </div>
-      </div>
-
-      <div className="Why-Choose-Void-Theory" style={{ backgroundImage: `url(${WhyChooseVoidTheoryBg})` }}>
-        <div className="why-choose-void-theory-content">
-          <h1>Why Choose Void Theory?</h1>
-          <ul>
-            <li>
-              <h3>Conversion-Focused Design</h3>
-              <p>Every page is structured to guide your visitors to take action—whether it's buying, booking, or subscribing.</p>
-            </li>
-            <li>
-              <h3>SEO & Speed Optimized</h3>
-              <p>Fast-loading, search-engine-friendly websites that rank higher and perform better.</p>
-            </li>
-            <li>
-              <h3>Custom-Built for Your Brand</h3>
-              <p>No templates. No shortcuts. 100% tailored design and development that reflects your unique business identity.</p>
-            </li>
-            <li>
-              <h3>Mobile-First, Always</h3>
-              <p>Your customers are on mobile—we make sure your website shines on every screen size.</p>
-            </li>
-          </ul>
-          <p className="why-choose-void-theory-content-desc">We don't just build websites—we build digital growth engines.</p>
-        </div>
-      </div>
-
-      <div className="Services-We-Offer" style={{ backgroundImage: `url(${ServicesBg})` }}>
-        <div className="services-content">
-          <h1>Services We Offer</h1>
-          <div className="services-grid">
-            <div className="service-card">
-              <h3>Custom Website Design</h3>
-              <p>Unique, brand-focused designs that convert visitors into customers.</p>
-            </div>
-            <div className="service-card">
-              <h3>Full Stack Development</h3>
-              <p>Modern tech stack: React, Next.js, Node.js for scalable solutions.</p>
-            </div>
-            <div className="service-card">
-              <h3>E-Commerce & Shopify</h3>
-              <p>Powerful online stores with seamless shopping experiences.</p>
-            </div>
-            <div className="service-card">
-              <h3>Landing Pages</h3>
-              <p>High-converting pages optimized for maximum engagement.</p>
-            </div>
-            <div className="service-card">
-              <h3>Website Redesign</h3>
-              <p>Transform your site into a high-performing digital asset.</p>
-            </div>
-            <div className="service-card">
-              <h3>SEO & Analytics</h3>
-              <p>Data-driven optimization for better visibility and performance.</p>
+              <div className="service-card">
+                <h3>Full Stack Development</h3>
+                <p>Modern tech stack: React, Next.js, Node.js for scalable solutions.</p>
+              </div>
+              <div className="service-card">
+                <h3>E-Commerce & Shopify</h3>
+                <p>Powerful online stores with seamless shopping experiences.</p>
+              </div>
+              <div className="service-card">
+                <h3>Landing Pages</h3>
+                <p>High-converting pages optimized for maximum engagement.</p>
+              </div>
+              <div className="service-card">
+                <h3>Website Redesign</h3>
+                <p>Transform your site into a high-performing digital asset.</p>
+              </div>
+              <div className="service-card">
+                <h3>SEO & Analytics</h3>
+                <p>Data-driven optimization for better visibility and performance.</p>
+              </div>
             </div>
           </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 }
 
