@@ -181,7 +181,7 @@ html, body {
   display: flex;
   justify-content: center;
   position: relative;
-  overflow: scroll;
+  overflow: visible;
 }
 
 .Our-Work::before{
@@ -199,6 +199,7 @@ html, body {
   z-index: 2;
   position: absolute;
   max-width: 100%;
+  min-height: 100vh;
   gap: 10px;
   display: flex;
   flex-direction: column;
