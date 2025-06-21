@@ -349,13 +349,13 @@ function Home() {
                 </div>
               ))}
             </Slider>
-            <div className="Our-Work-Footer">
+          </div>
+          <div className="Our-Work-Footer">
               <h2 className="work-content-heading">Ready to Elevate Your Online Presence?</h2>
               <p className="work-content-heading-desc">We're here to make it happen.</p>
               <p className="work-content-desc">Whether you're launching something new or leveling up your existing site—we're here to make it happen.</p>
               <a href="https://cal.com/voidtheory/call?overlayCalendar=true" target="_blank" rel="noopener noreferrer" className="btn-built">Get your website built</a>
             </div>
-          </div>
         </div>
 
         <div className="Why-Choose-Void-Theory" style={{ backgroundImage: `url(${WhyChooseVoidTheoryBg})` }}>

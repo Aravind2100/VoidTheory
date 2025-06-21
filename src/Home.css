@@ -180,6 +180,8 @@ html, body {
   background-repeat: no-repeat;
   display: flex;
   flex: 1;
+  gap: 1em;
+  flex-direction: column;
   justify-content: center;
   position: relative;
   overflow: hidden;
@@ -200,9 +202,9 @@ html, body {
 
 .work-content {
   z-index: 2;
-  position: absolute;
+  position: relative;
   max-width: 100%;
-  min-height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -261,6 +263,9 @@ html, body {
   align-items: center;
   justify-content: center;
   width: 100%;
+
+  z-index: 3;
+  
   padding: 2rem 1rem 2.5rem 1rem;
   box-sizing: border-box;
   background: none;
