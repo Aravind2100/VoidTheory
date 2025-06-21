@@ -416,22 +416,22 @@ html, body {
   
   /* Our Work Footer responsive styles */
   .Our-Work-Footer {
-    padding: 1.5rem 1rem 2rem 1rem;
+    padding: .75rem .5rem 1rem .5rem;
   }
   
   .work-content-heading {
     font-size: 1.8rem;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.4rem;
   }
   
   .work-content-heading-desc {
     font-size: 1.2rem;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.2rem;
   }
   
   .work-content-desc {
     font-size: 0.95rem;
-    margin-bottom: 1.2rem;
+    margin-bottom: .6rem;
   }
   
   .Our-Work-Footer .btn-built {
