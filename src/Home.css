@@ -181,7 +181,7 @@ html, body {
   display: flex;
   justify-content: center;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .Our-Work::after{
