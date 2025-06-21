@@ -7,6 +7,7 @@ import work2 from './Design/ShopZone.png';
 import work3 from './Design/WildLens.png';
 import work4 from './Design/BS-Stitchers.png';
 import work5 from './Design/Lustre-Co.png';
+import work6 from './Design/Sri-Arjun-Silks.png';
 import ScrollReveal from 'scrollreveal';
 
 const WorkDetails = () => {
@@ -88,6 +89,19 @@ const WorkDetails = () => {
       title: 'Lustre Co',
       description: 'A photography portfolio website showcasing stunning wildlife photography. The platform includes a blog section, photo gallery, and booking system for photography sessions.',
       image: work5,
+      technologies: ['React', 'GraphQL', 'Node.js', 'PostgreSQL', 'AWS S3'],
+      features: [
+        'Photo Gallery',
+        'Blog System',
+        'Booking System',
+        'Image Optimization',
+        'Social Media Integration'
+      ]
+    },
+    'Sri Arjun silks': {
+      title: 'Sri Arjun silks',
+      description: 'A photography portfolio website showcasing stunning wildlife photography. The platform includes a blog section, photo gallery, and booking system for photography sessions.',
+      image: work6,
       technologies: ['React', 'GraphQL', 'Node.js', 'PostgreSQL', 'AWS S3'],
       features: [
         'Photo Gallery',

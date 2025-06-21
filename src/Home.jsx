@@ -8,6 +8,7 @@ import work2 from './assets/ShopZone.png';
 import work3 from './assets/WildLens.png';
 import work4 from './assets/BS-Stitchers.png';
 import work5 from './assets/Lustre-Co.png';
+import work6 from './assets/Sri-Arjun-Silks.png';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -270,6 +271,11 @@ function Home() {
       id: 'Lustre Co',
       title: 'Lustre Co',
       image: work5
+    },
+    {
+      id: 'Sri Arjun silks',
+      title: 'Sri Arjun silks',
+      image: work6
     }
   ];
 
