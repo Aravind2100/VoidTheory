@@ -261,10 +261,11 @@ html, body {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
+  padding: 2rem 1rem 2.5rem 1rem;
   box-sizing: border-box;
   background: none;
   overflow: visible;
+  min-height: auto;
 }
 
 .work-slider {
@@ -384,10 +385,36 @@ html, body {
     max-width: 1700px;
   }
   .work-card {
-    width: 700px;
+    width: 600px;
   }
   .work-card img {
-    height: 280px;
+    height: 240px;
+  }
+  
+  /* Laptop specific work footer styles */
+  .Our-Work-Footer {
+    padding: 1.5rem 1rem 2rem 1rem;
+  }
+  
+  .work-content-heading {
+    font-size: 2.2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .work-content-heading-desc {
+    font-size: 1.3rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .work-content-desc {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .Our-Work-Footer .btn-built {
+    font-size: 1rem;
+    padding: 12px 24px;
+    max-width: 300px;
   }
 }
 
@@ -396,10 +423,10 @@ html, body {
     max-width: 1200px;
   }
   .work-card {
-    width: 500px;
+    width: 400px;
   }
   .work-card img {
-    height: 200px;
+    height: 160px;
   }
 }
 
@@ -408,10 +435,10 @@ html, body {
     max-width: 700px;
   }
   .work-card {
-    width: 320px;
+    width: 280px;
   }
   .work-card img {
-    height: 140px;
+    height: 120px;
   }
   
   /* Our Work Footer responsive styles */
@@ -420,24 +447,24 @@ html, body {
   }
   
   .work-content-heading {
-    font-size: 1.8rem;
-    margin-bottom: 0.4rem;
+    font-size: 1.6rem;
+    margin-bottom: 0.3rem;
   }
   
   .work-content-heading-desc {
-    font-size: 1.2rem;
-    margin-bottom: 0.2rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.15rem;
   }
   
   .work-content-desc {
-    font-size: 0.95rem;
-    margin-bottom: .6rem;
+    font-size: 0.9rem;
+    margin-bottom: .5rem;
   }
   
   .Our-Work-Footer .btn-built {
-    font-size: 0.95rem;
-    padding: 12px 20px;
-    max-width: 280px;
+    font-size: 0.9rem;
+    padding: 10px 18px;
+    max-width: 260px;
   }
 }
 
@@ -447,12 +474,12 @@ html, body {
     padding: 0;
   }
   .work-card {
-    width: 98vw;
+    width: 85vw;
     min-width: 0;
-    max-width: 99vw;
+    max-width: 90vw;
   }
   .work-card img {
-    height: 220px;
+    height: 100px;
   }
   .work-slider .slick-slide {
     padding: 0 2px;
@@ -460,56 +487,24 @@ html, body {
   
   /* Our Work Footer responsive styles for mobile */
   .Our-Work-Footer {
-    padding: 1rem 0.5rem 1.5rem 0.5rem;
+    padding: 0.5rem 0.3rem 0.8rem 0.3rem;
   }
   
   .work-content-heading {
-    font-size: 1.4rem;
-    margin-bottom: 0.6rem;
-    padding: 0 0.3rem;
-  }
-  
-  .work-content-heading-desc {
-    font-size: 1rem;
-    margin-bottom: 0.3rem;
-    padding: 0 0.3rem;
-  }
-  
-  .work-content-desc {
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    padding: 0 0.3rem;
-  }
-  
-  .Our-Work-Footer .btn-built {
-    font-size: 0.9rem;
-    padding: 10px 16px;
-    max-width: 250px;
-    width: 90%;
-  }
-}
-
-@media (max-width: 360px) {
-  /* Our Work Footer responsive styles for very small screens */
-  .Our-Work-Footer {
-    padding: 0.8rem 0.3rem 1.2rem 0.3rem;
-  }
-  
-  .work-content-heading {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    margin-bottom: 0.25rem;
     padding: 0 0.2rem;
   }
   
   .work-content-heading-desc {
-    font-size: 0.9rem;
-    margin-bottom: 0.2rem;
+    font-size: 0.95rem;
+    margin-bottom: 0.1rem;
     padding: 0 0.2rem;
   }
   
   .work-content-desc {
     font-size: 0.85rem;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.4rem;
     padding: 0 0.2rem;
   }
   
@@ -517,7 +512,47 @@ html, body {
     font-size: 0.85rem;
     padding: 8px 14px;
     max-width: 220px;
-    width: 95%;
+    width: 85%;
+  }
+}
+
+@media (max-width: 360px) {
+  /* Our Work Footer responsive styles for very small screens */
+  .Our-Work-Footer {
+    padding: 0.4rem 0.2rem 0.6rem 0.2rem;
+  }
+  
+  .work-content-heading {
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+    padding: 0 0.15rem;
+  }
+  
+  .work-content-heading-desc {
+    font-size: 0.85rem;
+    margin-bottom: 0.08rem;
+    padding: 0 0.15rem;
+  }
+  
+  .work-content-desc {
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+    padding: 0 0.15rem;
+  }
+  
+  .Our-Work-Footer .btn-built {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    max-width: 200px;
+    width: 90%;
+  }
+  
+  .work-card {
+    width: 80vw;
+  }
+  
+  .work-card img {
+    height: 80px;
   }
 }
 
@@ -1056,6 +1091,7 @@ img, .work-card img, .service-card img {
   box-sizing: border-box;
   background: none;
   overflow: visible;
+  min-height: auto;
 }
 .work-content-heading,
 .work-content-heading-desc,
@@ -1174,4 +1210,32 @@ button, .btn-built, .btn-plan, .Our-Work-Footer .btn-built, .buttons a, .buttons
 .Home-Body, .home-bg, .Our-Work, .Why-Choose-Void-Theory, .Services-We-Offer {
   max-width: 100vw;
   overflow-x: hidden !important;
+}
+
+@media (min-width: 1200px) {
+  /* Large laptop and desktop work footer styles */
+  .Our-Work-Footer {
+    padding: 2.5rem 1.5rem 3rem 1.5rem;
+  }
+  
+  .work-content-heading {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .work-content-heading-desc {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .work-content-desc {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .Our-Work-Footer .btn-built {
+    font-size: 1.1rem;
+    padding: 14px 28px;
+    max-width: 320px;
+  }
 }
