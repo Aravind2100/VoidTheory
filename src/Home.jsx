@@ -328,7 +328,7 @@ function Home() {
             <p className="home-desc-desktop">
               At voidTheory, we build high-converting websites with smart copy and seamless development—<br />
               turning visitors into loyal customers.
-              Driven by strategy. Designed for growth.
+              Driven by strategies. Designed for growth.
             </p>
 
             <div className="buttons">
