@@ -1,0 +1,90 @@
+.what-we-do {
+  padding: 7rem 6vw;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.wwd-header h2 {
+  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1.25;
+  max-width: 30ch;
+}
+
+.wwd-grid {
+  margin-top: 3.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.wwd-card {
+  position: relative;
+  background: var(--bg-alt);
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  transition: background 0.25s ease;
+  z-index: 0;
+}
+
+.wwd-card:hover {
+  background: var(--surface);
+  z-index: 1;
+}
+
+.wwd-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 0 1px transparent;
+  transition: box-shadow 0.25s ease;
+  pointer-events: none;
+}
+
+.wwd-card:hover::after {
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.wwd-card h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.wwd-card:hover h3 {
+  color: var(--accent);
+}
+
+.wwd-card p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  flex: 1;
+}
+
+@media (max-width: 900px) {
+  .wwd-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .what-we-do {
+    padding: 5rem 6vw;
+  }
+
+  .wwd-grid {
+    grid-template-columns: 1fr;
+    border-radius: 14px;
+  }
+
+  .wwd-card {
+    padding: 1.75rem 1.5rem;
+  }
+}

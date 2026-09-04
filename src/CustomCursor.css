@@ -1,0 +1,31 @@
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  border-radius: 50%;
+  background: var(--accent);
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 0.2s ease, height 0.2s ease, margin 0.2s ease,
+    background 0.2s ease, border-width 0.2s ease;
+  mix-blend-mode: difference;
+}
+
+.custom-cursor-hover {
+  width: 36px;
+  height: 36px;
+  margin: -18px 0 0 -18px;
+  background: transparent;
+  border: 1.5px solid var(--accent);
+}
+
+/* Hide the system cursor only once the custom one is confirmed active,
+   so a failed/disabled custom cursor never leaves the page cursor-less. */
+body.custom-cursor-active,
+body.custom-cursor-active a,
+body.custom-cursor-active button {
+  cursor: none;
+}

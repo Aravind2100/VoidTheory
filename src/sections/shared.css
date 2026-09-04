@@ -1,0 +1,176 @@
+.section-eyebrow {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.section-all-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 3rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent);
+  width: fit-content;
+}
+
+.section-all-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.section-all-link:hover::after {
+  transform: scaleX(1);
+}
+
+.section-all-link .arrow {
+  transition: transform 0.2s ease;
+}
+
+.section-all-link:hover .arrow {
+  transform: translateX(3px);
+}
+
+/* Project card, shared between FeaturedWork (homepage) and the full Work page.
+   Tilt/hover motion (transform) is owned by TiltCard.jsx when a card is
+   wrapped in it — this only sets layout, not transform, to avoid fighting
+   TiltCard's inline transform. */
+.fw-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.fw-thumb {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  background: var(--bg-alt);
+  border: 1px dashed var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.fw-card:hover .fw-thumb {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent-soft), 0 12px 30px -12px rgba(0, 190, 98, 0.35);
+}
+
+.fw-thumb::before {
+  content: '';
+  position: absolute;
+  inset: -50% -50%;
+  background: linear-gradient(
+    115deg,
+    transparent 40%,
+    var(--accent-soft) 48%,
+    transparent 56%
+  );
+  animation: thumb-sweep 6s ease-in-out infinite;
+}
+
+@keyframes thumb-sweep {
+  0% {
+    transform: translateX(-30%);
+  }
+  50% {
+    transform: translateX(30%);
+  }
+  100% {
+    transform: translateX(-30%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fw-thumb::before {
+    animation: none;
+  }
+}
+
+.fw-thumb span {
+  position: relative;
+  z-index: 1;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.fw-category {
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.fw-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.fw-desc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.fw-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.fw-tag {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  padding: 0.3em 0.75em;
+  border-radius: 999px;
+}
+
+/* Service number/tags, shared between WhatWeDo (homepage) and the full Services page */
+.wwd-number {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.wwd-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.wwd-tag {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 0.3em 0.75em;
+  border-radius: 999px;
+}

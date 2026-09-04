@@ -1,0 +1,163 @@
+.featured-work {
+  padding: 7rem 6vw;
+}
+
+.featured-work-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.fw-header h2 {
+  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1.25;
+  max-width: 30ch;
+}
+
+/* Asymmetric layout: one large feature card + a stack of smaller
+   horizontal cards beside it, rather than a uniform grid. */
+.fw-layout {
+  margin-top: 3.5rem;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 1.75rem;
+  align-items: stretch;
+}
+
+.fw-feature-wrap {
+  height: 100%;
+}
+
+.fw-feature {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.fw-feature .fw-thumb {
+  aspect-ratio: auto;
+  flex: 1;
+  min-height: 280px;
+  margin-bottom: 0;
+  border-radius: 14px 14px 0 0;
+}
+
+.fw-feature-body {
+  padding: 1.75rem 0.25rem 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.fw-feature-body h3 {
+  font-size: 1.5rem;
+}
+
+.fw-side-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.fw-side-card {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--bg);
+}
+
+.fw-side-thumb {
+  position: relative;
+  flex: none;
+  width: 40%;
+  border-radius: 10px;
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.fw-side-thumb::before {
+  content: '';
+  position: absolute;
+  inset: -50% -50%;
+  background: linear-gradient(
+    115deg,
+    transparent 40%,
+    var(--accent-soft) 48%,
+    transparent 56%
+  );
+  animation: thumb-sweep 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fw-side-thumb::before {
+    animation: none;
+  }
+}
+
+.fw-side-thumb span {
+  position: relative;
+  z-index: 1;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.fw-side-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  justify-content: center;
+}
+
+.fw-side-body h3 {
+  font-size: 1.05rem;
+}
+
+.fw-side-body .fw-tags {
+  margin-top: 0.15rem;
+}
+
+@media (max-width: 900px) {
+  .fw-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .fw-side-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .fw-side-card {
+    flex: 1 1 260px;
+  }
+}
+
+@media (max-width: 640px) {
+  .featured-work {
+    padding: 5rem 6vw;
+  }
+
+  .fw-side-list {
+    flex-direction: column;
+  }
+
+  .fw-side-card {
+    flex-direction: column;
+  }
+
+  .fw-side-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+}

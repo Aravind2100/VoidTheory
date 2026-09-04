@@ -1,0 +1,109 @@
+.how-we-work {
+  padding: 7rem 6vw;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hww-header h2 {
+  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1.25;
+  max-width: 24ch;
+}
+
+.hww-steps {
+  --progress: 0;
+  margin-top: 3.5rem;
+  position: relative;
+}
+
+.hww-steps::before {
+  content: '';
+  position: absolute;
+  top: 0.6rem;
+  bottom: 0.6rem;
+  left: 1.5rem;
+  width: 2px;
+  background: var(--border);
+}
+
+.hww-line-fill {
+  position: absolute;
+  top: 0.6rem;
+  bottom: 0.6rem;
+  left: 1.5rem;
+  width: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  transform-origin: top;
+  transform: scaleY(var(--progress));
+  transition: transform 0.1s linear;
+  pointer-events: none;
+}
+
+.hww-step {
+  position: relative;
+  display: flex;
+  gap: 1.75rem;
+  padding: 1.75rem 0;
+}
+
+.hww-step:first-child {
+  padding-top: 0;
+}
+
+.hww-step:last-child {
+  padding-bottom: 0;
+}
+
+.hww-number {
+  position: relative;
+  flex: none;
+  width: 3.1rem;
+  height: 3.1rem;
+  border-radius: 50%;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+  z-index: 1;
+}
+
+.hww-step-body h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.hww-step-body p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  max-width: 55ch;
+}
+
+@media (max-width: 640px) {
+  .how-we-work {
+    padding: 5rem 6vw;
+  }
+
+  .hww-steps::before,
+  .hww-line-fill {
+    left: 1.15rem;
+  }
+
+  .hww-number {
+    width: 2.4rem;
+    height: 2.4rem;
+    font-size: 0.78rem;
+  }
+
+  .hww-step {
+    gap: 1.1rem;
+  }
+}

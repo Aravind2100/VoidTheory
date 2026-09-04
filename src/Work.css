@@ -1,0 +1,47 @@
+.work-page {
+  padding: 9rem 6vw 6rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.work-page-header {
+  max-width: 700px;
+}
+
+.work-page-header h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-top: 0.5rem;
+}
+
+.work-page-desc {
+  margin-top: 1.25rem;
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.work-page-grid {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+@media (max-width: 900px) {
+  .work-page-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .work-page {
+    padding: 7.5rem 6vw 4rem;
+  }
+
+  .work-page-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}

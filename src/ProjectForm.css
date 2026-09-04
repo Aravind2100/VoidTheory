@@ -1,0 +1,121 @@
+.project-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.project-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.project-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.project-form-field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.project-form-field input,
+.project-form-field select,
+.project-form-field textarea {
+  width: 100%;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.85em 1em;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-form-field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.project-form-field select {
+  cursor: pointer;
+}
+
+.project-form-field input:focus,
+.project-form-field select:focus,
+.project-form-field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.project-form-field input[aria-invalid='true'],
+.project-form-field textarea[aria-invalid='true'] {
+  border-color: #e05252;
+}
+
+.project-form-error {
+  font-size: 0.8rem;
+  color: #e88;
+}
+
+.project-form-submit {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
+.project-form-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: -0.75rem;
+}
+
+.project-form-sent {
+  text-align: left;
+  padding: 2rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--bg-alt);
+}
+
+.project-form-sent h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.project-form-sent p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.project-form-sent a {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.project-form-reset {
+  margin-top: 1.5rem;
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.project-form-reset:hover {
+  color: var(--text);
+}
+
+@media (max-width: 640px) {
+  .project-form-row {
+    grid-template-columns: 1fr;
+  }
+}
