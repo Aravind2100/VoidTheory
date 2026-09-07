@@ -3,20 +3,27 @@ import { useEffect } from 'react';
 const SITE_NAME = 'VoidTheory';
 
 /**
- * Sets document.title for the current page. Pass just the page name
- * (e.g. "Work") — the site name is appended automatically. Pass `full`
- * to set an exact title with no suffix (used for the homepage, which
- * wants the site name first). Restores the previous title on unmount
- * so navigating away doesn't leave it stale.
+ * Sets document.title and meta description dynamically per route for brand SEO optimization.
  */
-function usePageTitle(page, { full = false } = {}) {
+function usePageTitle(page, { full = false, description = '' } = {}) {
   useEffect(() => {
-    const previous = document.title;
+    const previousTitle = document.title;
     document.title = full ? page : page ? `${page} | ${SITE_NAME}` : SITE_NAME;
+
+    let metaDesc = document.querySelector('meta[name="description"]');
+    const previousDesc = metaDesc ? metaDesc.getAttribute('content') : '';
+
+    if (description && metaDesc) {
+      metaDesc.setAttribute('content', description);
+    }
+
     return () => {
-      document.title = previous;
+      document.title = previousTitle;
+      if (previousDesc && metaDesc) {
+        metaDesc.setAttribute('content', previousDesc);
+      }
     };
-  }, [page, full]);
+  }, [page, full, description]);
 }
 
 export default usePageTitle;

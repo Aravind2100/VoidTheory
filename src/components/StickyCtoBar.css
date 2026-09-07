@@ -1,0 +1,181 @@
+.sticky-cro-bar {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 990;
+  width: calc(100% - 2.5rem);
+  max-width: 780px;
+  background: rgba(20, 20, 20, 0.88); /* Shadow Slate #141414 with high blur */
+  border: 1px solid rgba(0, 179, 60, 0.3); /* Matrix Emerald accent ring */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 100px;
+  padding: 0.45rem 0.65rem 0.45rem 1.1rem;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.85), 0 0 30px rgba(0, 179, 60, 0.15);
+  animation: sticky-slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: all 0.3s ease;
+}
+
+@keyframes sticky-slide-up {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 30px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.sticky-cro-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.sticky-cro-info {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+}
+
+.sticky-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+  flex-shrink: 0;
+  animation: pulse-dot 2.5s infinite;
+}
+
+.sticky-metric-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.sticky-metric-badge {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-glow);
+  background: var(--accent-soft);
+  padding: 0.18rem 0.55rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-active);
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.sticky-text {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sticky-text strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.sticky-cro-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-shrink: 0;
+}
+
+.sticky-btn {
+  padding: 0.42rem 1rem !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  border-radius: 100px !important;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.sticky-btn-secondary {
+  padding: 0.42rem 0.8rem !important;
+  font-size: 0.8rem !important;
+  border-radius: 100px !important;
+  white-space: nowrap;
+}
+
+.sticky-close {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  margin-left: 0.2rem;
+}
+
+.sticky-close:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ==========================================================================
+   MOBILE FLOATING PILL OPTIMIZATION (< 768px)
+   ========================================================================== */
+@media (max-width: 767px) {
+  .sticky-cro-bar {
+    bottom: 0.85rem;
+    width: calc(100% - 1.5rem);
+    max-width: 440px;
+    padding: 0.35rem 0.45rem 0.35rem 0.85rem;
+    border-radius: 100px; /* High-end floating pill shape! */
+    height: 46px;
+  }
+  
+  .sticky-cro-inner {
+    flex-direction: row; /* Single ultra-sleek horizontal row */
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.4rem;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .sticky-text {
+    display: none; /* Hide multi-word text to keep bar slim */
+  }
+
+  .sticky-metric-badge {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.45rem;
+  }
+
+  .sticky-btn-secondary {
+    display: none; /* Hide secondary link on small viewports to avoid clutter */
+  }
+
+  .sticky-btn {
+    padding: 0.38rem 0.85rem !important;
+    font-size: 0.76rem !important;
+  }
+
+  .sticky-close {
+    width: 24px;
+    height: 24px;
+    font-size: 0.7rem;
+  }
+}

@@ -1,12 +1,9 @@
 import { useEffect, useRef } from 'react';
 
 /**
- * Tracks how far the given element has scrolled past the top of the
- * viewport (0 = element top at viewport top, 1 = element fully
- * scrolled past), and writes it to --parallax on the element via a
- * rAF loop tied to scroll events. A no-op under reduced-motion —
- * --parallax simply stays at its CSS default (0), so parallax-driven
- * rules should keep motion optional there anyway.
+ * macOS Scroll Parallax Hook.
+ * Uses window.scrollY to continuously write 3D scroll fold & blur CSS variables (--parallax-top, --parallax-card)
+ * for smooth macOS window folding animations.
  */
 function useScrollParallax() {
   const ref = useRef(null);
@@ -23,12 +20,22 @@ function useScrollParallax() {
     let ticking = false;
 
     function update() {
-      const rect = el.getBoundingClientRect();
-      const progress = Math.min(
+      // Disable parallax on mobile viewports (< 768px) for native smooth touch scrolling
+      if (window.innerWidth < 768) {
+        el.style.setProperty('--parallax-top', '0');
+        ticking = false;
+        return;
+      }
+
+      const scrolled = window.scrollY || window.pageYOffset || 0;
+
+      // Topbar & Headline: Folds & blurs smoothly over the first 350px of scroll
+      const progressTop = Math.min(
         1,
-        Math.max(0, -rect.top / (rect.height || 1))
+        Math.max(0, scrolled / 350)
       );
-      el.style.setProperty('--parallax', progress.toFixed(4));
+
+      el.style.setProperty('--parallax-top', progressTop.toFixed(4));
       ticking = false;
     }
 

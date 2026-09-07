@@ -26,7 +26,9 @@ const audiences = [
 ];
 
 function About() {
-  usePageTitle('About');
+  usePageTitle('About Our Creative Technology Studio', {
+    description: 'Learn about VoidTheory — an avant-garde software & design studio engineering custom digital products with fixed scope, zero fluff, and direct technical leadership.'
+  });
 
   return (
     <div className="page" id="top">

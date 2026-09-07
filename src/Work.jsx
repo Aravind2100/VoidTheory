@@ -9,7 +9,9 @@ import TiltCard from './TiltCard';
 import { projects } from './data/projects';
 
 function Work() {
-  usePageTitle('Work');
+  usePageTitle('Case Studies & Software Engineering Portfolio', {
+    description: 'Explore proven case studies and software engineering portfolio shipped by VoidTheory — enterprise SaaS platforms, mobile telemetry apps, and real-time cloud data systems.'
+  });
 
   return (
     <div className="page" id="top">

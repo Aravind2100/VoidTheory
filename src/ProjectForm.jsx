@@ -6,7 +6,7 @@ const PROJECT_TYPES = [
   'Web Application',
   'Mobile App',
   'Custom Software',
-  'AI / Automation',
+  'Custom Automation & Integration',
   'MVP',
   'Something Else',
 ];

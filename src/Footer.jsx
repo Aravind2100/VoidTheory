@@ -8,7 +8,7 @@ function Footer() {
     <footer className="footer">
       <Reveal className="footer-top">
         <div className="footer-brand">
-          <img src={logo} alt="VoidTheory" className="footer-logo" />
+          <img src={logo} alt="VoidTheory — Creative Technology & Software Studio Logo" className="footer-logo" />
           <div>
             <p className="footer-name">VOIDTHEORY</p>
             <p className="footer-tagline">Exploring ideas. Engineering reality.</p>
