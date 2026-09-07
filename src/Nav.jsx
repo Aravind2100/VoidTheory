@@ -3,25 +3,16 @@ import { Link, useLocation } from 'react-router-dom';
 import './Nav.css';
 import logo from './assets/logo.png';
 
-function Nav({ onOpenEstimator }) {
+function Nav() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [expanded, setExpanded] = useState(false);
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Trigger logo-to-full-nav expansion on page load
-    const timer = setTimeout(() => {
-      setExpanded(true);
-    }, 180);
-
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener('scroll', onScroll);
-    };
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   useEffect(() => {
@@ -39,46 +30,38 @@ function Nav({ onOpenEstimator }) {
   ];
 
   return (
-    <header className={`nav-floating-wrap${scrolled ? ' is-scrolled' : ''}`}>
-      <div className={`nav-pill ${expanded ? 'is-expanded' : 'is-collapsed'}`}>
-        
-        {/* BRAND LOGO AREA */}
+    <header className={`nav${scrolled ? ' nav-scrolled' : ''}`}>
+      <div className="nav-inner">
         <Link to="/" className="nav-brand" onClick={() => setOpen(false)}>
-          <img src={logo} alt="VoidTheory — Creative Technology & Custom Software Studio Logo" className="nav-logo" />
-          <span className="brand-name-text">VOIDTHEORY</span>
+          <img src={logo} alt="VoidTheory" className="nav-logo" />
+          <span>VOIDTHEORY</span>
         </Link>
 
-        {/* NAVIGATION LINKS (Reveals during expansion) */}
-        <nav className="nav-links-wrap">
+        <nav className="nav-links">
           {links.map((link) => (
             <Link
               key={link.label}
               to={link.to}
-              className={`nav-link-item ${pathname === link.to ? 'active' : ''}`}
+              className={pathname === link.to ? 'nav-link-active' : ''}
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        {/* PRIMARY CTA */}
-        <div className="nav-cta-wrap">
-          <button
-            className="nav-cta-btn"
-            onClick={() => {
-              if (onOpenEstimator) onOpenEstimator();
-              else window.open('https://cal.com/voidtheory/call?overlayCalendar=true', '_blank');
-            }}
-          >
-            Start a Project <span className="arrow">→</span>
-          </button>
-        </div>
+        <a
+          href="https://cal.com/voidtheory/call?overlayCalendar=true"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="nav-cta"
+        >
+          Start a Project <span className="arrow">→</span>
+        </a>
 
-        {/* MOBILE MENU TOGGLE */}
         <button
-          className={`nav-toggle-btn${open ? ' is-open' : ''}`}
+          className={`nav-toggle${open ? ' is-open' : ''}`}
           onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle navigation menu"
+          aria-label="Toggle menu"
           aria-expanded={open}
         >
           <span />
@@ -86,25 +69,21 @@ function Nav({ onOpenEstimator }) {
         </button>
       </div>
 
-      {/* MOBILE OVERLAY MENU */}
-      <div className={`nav-mobile-overlay${open ? ' is-open' : ''}`}>
-        <div className="nav-mobile-links">
-          {links.map((link) => (
-            <Link key={link.label} to={link.to} onClick={() => setOpen(false)}>
-              {link.label}
-            </Link>
-          ))}
-          <button
-            className="nav-mobile-cta-btn"
-            onClick={() => {
-              setOpen(false);
-              if (onOpenEstimator) onOpenEstimator();
-              else window.open('https://cal.com/voidtheory/call?overlayCalendar=true', '_blank');
-            }}
-          >
-            Start a Project →
-          </button>
-        </div>
+      <div className={`nav-mobile${open ? ' is-open' : ''}`}>
+        {links.map((link) => (
+          <Link key={link.label} to={link.to} onClick={() => setOpen(false)}>
+            {link.label}
+          </Link>
+        ))}
+        <a
+          href="https://cal.com/voidtheory/call?overlayCalendar=true"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="nav-mobile-cta"
+          onClick={() => setOpen(false)}
+        >
+          Start a Project →
+        </a>
       </div>
     </header>
   );

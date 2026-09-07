@@ -1,13 +1,24 @@
 import './StartProject.css';
 import Reveal from '../Reveal';
-import InlineEstimator from '../components/InlineEstimator';
 
-function StartProject({ selectedType, onSelectType }) {
+function StartProject() {
   return (
-    <section className="start-project" id="estimator-section">
+    <section className="start-project">
       <div className="start-project-glow" aria-hidden="true" />
-      <Reveal className="start-project-content" style={{ width: '100%' }}>
-        <InlineEstimator selectedType={selectedType} onSelectType={onSelectType} />
+      <Reveal className="start-project-content">
+        <h2>Have something in mind?</h2>
+        <p>
+          Whether you have a clear plan or just an idea, let&apos;s talk
+          about what it could become.
+        </p>
+        <a
+          href="https://cal.com/voidtheory/call?overlayCalendar=true"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-primary"
+        >
+          Start a Conversation <span className="arrow">→</span>
+        </a>
       </Reveal>
     </section>
   );

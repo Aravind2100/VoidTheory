@@ -8,9 +8,7 @@ import Reveal from './Reveal';
 import ProjectForm from './ProjectForm';
 
 function Contact() {
-  usePageTitle('Book Strategy Call & Inquiry', {
-    description: 'Book a 15-minute strategy call with VoidTheory founders or submit your custom software inquiry for a guaranteed 24-hour proposal.'
-  });
+  usePageTitle('Contact');
 
   return (
     <div className="page" id="top">

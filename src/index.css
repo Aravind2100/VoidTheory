@@ -1,22 +1,15 @@
 :root {
-  /* Avant-garde Futuristic Fonts */
-  --font-heading: 'Syne', 'Space Grotesk', system-ui, sans-serif;
-  --font-body: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
 
-  /* Brand Color Palette */
-  --bg: #050505;              /* Deep Void Black */
-  --bg-alt: #0a0a0a;
-  --surface: #141414;         /* Shadow Slate */
-  --surface-hover: #1c1c1c;
-  --surface-inverted: #F8F9FA;/* Inverted Crisp White Block */
-  --text-inverted: #050505;   /* Inverted Deep Black Text */
-  --border: rgba(255, 255, 255, 0.08);
-  --border-active: rgba(0, 179, 60, 0.35);
-  --text: #F8F9FA;            /* Crisp White */
-  --text-muted: #B5B5BA;      /* High Contrast Accessibility Slate (WCAG AAA) */
-  --accent: #00B33C;          /* Matrix Emerald */
-  --accent-glow: #2EE674;     /* Glow Mint */
-  --accent-soft: rgba(0, 179, 60, 0.1);
+  --bg: #050505;
+  --bg-alt: #111111;
+  --surface: #181818;
+  --border: rgba(255, 255, 255, 0.1);
+  --text: #f5f5f5;
+  --text-muted: #888888;
+  --accent: #00be62;
+  --accent-soft: rgba(0, 190, 98, 0.12);
 
   color-scheme: dark;
   font-synthesis: none;
@@ -36,7 +29,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-body);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 a {
@@ -47,8 +40,7 @@ a {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   margin: 0;
-  letter-spacing: -0.03em;
-  color: var(--text);
+  letter-spacing: -0.02em;
 }
 
 p {
@@ -112,6 +104,8 @@ img {
   }
 }
 
+/* Load-in entrance for above-the-fold content (page heroes). Apply
+   with a staggered animation-delay per element. */
 .hero-in {
   opacity: 0;
   animation: hero-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -128,12 +122,74 @@ img {
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .hero-in {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* Slow ambient pulse for background glows (hero, CTA, page heroes) */
+@keyframes glow-pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.12);
+    opacity: 0.8;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-glow,
+  .start-project-glow,
+  .about-glow,
+  .contact-glow {
+    animation: none;
+  }
+}
+
+/* Cursor-reactive 3D tilt, see TiltCard.jsx */
+.tilt-card {
+  position: relative;
+  transition: transform 0.15s ease-out;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.tilt-card-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at var(--glare-x, 50%) var(--glare-y, 50%),
+    rgba(255, 255, 255, 0.06),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.tilt-card:hover .tilt-card-glare {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tilt-card {
+    transition: none;
+  }
+}
+
+/* Shiny gradient sweep for headings — a light band loops across the
+   text. Pure CSS (background-clip: text), no JS. */
 .shine-text {
   background: linear-gradient(
     100deg,
     var(--text) 0%,
     var(--text) 42%,
-    var(--accent-glow) 50%,
+    var(--accent) 50%,
     var(--text) 58%,
     var(--text) 100%
   );
@@ -142,7 +198,7 @@ img {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: shine-sweep 6s ease-in-out infinite;
+  animation: shine-sweep 5s ease-in-out infinite;
 }
 
 @keyframes shine-sweep {
@@ -151,5 +207,15 @@ img {
   }
   55%, 100% {
     background-position: -60% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shine-text {
+    animation: none;
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    color: var(--text);
   }
 }

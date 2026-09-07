@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './sections/buttons.css';
 import './sections/shared.css';
 import usePageTitle from './usePageTitle';
@@ -10,37 +9,24 @@ import AboutSection from './sections/AboutSection';
 import HowWeWork from './sections/HowWeWork';
 import WhyVoidTheory from './sections/WhyVoidTheory';
 import Proof from './sections/Proof';
-import BookMeetingSection from './sections/BookMeetingSection';
+import StartProject from './sections/StartProject';
 import Footer from './Footer';
-import StickyCtoBar from './components/StickyCtoBar';
 
 function Home() {
-  usePageTitle('VoidTheory — Creative Technology & Custom Software Studio', {
-    full: true,
-    description: 'VoidTheory is an elite creative technology and custom software studio engineering SaaS platforms, mobile apps, and automated digital systems with fixed scope and a guaranteed 24-hour proposal SLA.'
-  });
-
-  const handleOpenEstimator = () => {
-    const el = document.getElementById('book-meeting');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  usePageTitle('VoidTheory — Creative Technology & Software Studio', { full: true });
 
   return (
     <div className="page" id="top">
-      <Nav onOpenEstimator={handleOpenEstimator} />
-      <Hero onOpenEstimator={handleOpenEstimator} />
+      <Nav />
+      <Hero />
       <WhatWeDo />
-      <FeaturedWork onOpenEstimator={handleOpenEstimator} />
+      <FeaturedWork />
       <AboutSection />
       <HowWeWork />
       <WhyVoidTheory />
       <Proof />
-      <BookMeetingSection />
+      <StartProject />
       <Footer />
-
-      <StickyCtoBar onOpenEstimator={handleOpenEstimator} />
     </div>
   );
 }

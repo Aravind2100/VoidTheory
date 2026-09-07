@@ -8,9 +8,7 @@ import Reveal from './Reveal';
 import { services } from './data/services';
 
 function Services() {
-  usePageTitle('Custom Software & App Development Services', {
-    description: 'Full-cycle engineering services by VoidTheory: Web Application Development, iOS/Android Mobile Apps, Custom Internal Tools, System Architecture, and Rapid MVP Sprints.'
-  });
+  usePageTitle('Services');
 
   return (
     <div className="page" id="top">
